@@ -28,9 +28,10 @@
       align-items: center;
       margin-bottom: 10px;
     }
-    .Post-picture img{
-      width: 500px;
+    .post-picture img{
+      width: 100%;
       height: auto;
+      border-radius: 5px;
       margin-right: 10px;
     }
     .post-header img {
@@ -91,14 +92,14 @@
           
         </div>
         <p>{{$post['post_title']}}</p>
-        <div class="Post-picture">
+        <div class="post-picture">
         <img src="{{ asset('Front/images/post_image/'.$post['post_image']) }}">
         </div>
         <p>{{$post['post_summary']}}</p>
         <hr>
         <div class="d-flex justify-content-between">
           <button class="btn btn-primary">Like</button>
-          <button class="btn btn-secondary">Comment</button>
+          <button class="btn btn-secondary">Pay Now</button>
           <button class="btn btn-danger">Share</button>
         </div>
       </div>

@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function homepage()
     {
-        $posts = Post::all();
+        $posts = Post::where('status','=',1)->orderBy('id','desc')->get();
         $admins = Admin::all();
         return view('home.homepage', compact('posts','admins'));
 

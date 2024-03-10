@@ -88,7 +88,7 @@
       <div class="post">
         <div class="post-header">
           <img src="{{ asset('Front/images/post_image/'.$post['post_image']) }}">
-          <h5 class="mb-0">{{ Auth::guard('admin')->user()->name}}</h5>
+          <h5 class="mb-0">Admin</h5>
           
         </div>
         <p>{{$post['post_title']}}</p>

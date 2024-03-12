@@ -61,21 +61,12 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Services</a>
         </li>
-        @if (Route::has('login'))
         <li class="nav-item">
-          
-          @auth
-              <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
-          @else
-          <a href="{{ route('login') }}" class="nav-link">Log in</a>
-          </li>
-          <li class="nav-item">
-          @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="nav-link">Register</a>
-          @endif
-          @endauth
+          <a class="nav-link" href="{{ route('login') }}">Login</a>
         </li>
-        @endif
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('register') }}">Register</a>
+        </li>
       </ul>
     </div>
   </div>

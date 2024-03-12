@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    public function login(){
+        if(Auth::id()){
+            $userStatus = Auth::user()->status;
+            if($userStatus == 1){
+                return view("dashboard");
+            }else{
+                return view("auth.login");
+            }
+        }
+    }
     public function homepage()
     {
         $posts = Post::where('status','=',1)->orderBy('id','desc')->get();

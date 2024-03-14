@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -24,6 +25,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/',[HomeController::class,'homepage']);
 Route::get('/home',[HomeController::class,'login']);
+Route::get('/event-register',[HomeController::class,'eventRegister']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -59,3 +61,21 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     });
 
 });
+// SSLCOMMERZ Start
+//Downloading Invice
+Route::get('/download/invoice/{path}', [PaymentController::class, 'downloadInvoice'])->name('download.invoice');
+Route::get('user-invoice', [PaymentController::class,'showInvoice']);
+
+Route::match(['get','post'],'/user-pay', [PaymentController::class, 'paymentCheckout']);
+Route::match(['get','post'],'/event-member-pay', [PaymentController::class, 'eventMemberCheckout']);
+Route::get('/pay-now-host', [PaymentController::class, 'paymentHosted']);
+
+Route::post('/pay', [PaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [PaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [PaymentController::class, 'success']);
+Route::post('/fail', [PaymentController::class, 'fail']);
+Route::post('/cancel', [PaymentController::class, 'cancel']);
+
+Route::post('/ipn', [PaymentController::class, 'ipn']);
+//SSLCOMMERZ END

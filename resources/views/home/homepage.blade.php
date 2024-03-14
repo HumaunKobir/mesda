@@ -89,8 +89,11 @@
         <p>{{$post['post_summary']}}</p>
         <hr>
         <div class="d-flex justify-content-between">
-          <button class="btn btn-primary">Like</button>
-          <button class="btn btn-secondary">Pay Now</button>
+          @if(Auth::check())
+          <a href="{{url('user-pay')}}"><button class="btn btn-primary">User Pay</button></a>
+          @else
+          <a href="{{url('event-member-pay')}}"><button class="btn btn-secondary">Event Member pay</button></a>
+          @endif
           <button class="btn btn-danger">Share</button>
         </div>
       </div>

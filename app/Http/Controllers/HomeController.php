@@ -27,4 +27,7 @@ class HomeController extends Controller
         return view('home.homepage', compact('posts','admins'));
 
     }
+    public function eventRegister(){
+        return view('home.event_registration');
+    }
 }

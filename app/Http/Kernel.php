@@ -13,6 +13,11 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+    protected $routeMiddleware = [
+        // Other middleware
+        'redirect.back' => \App\Http\Middleware\RedirectBackAfterLogin::class,
+    ];
+    
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,

@@ -53,40 +53,41 @@
 
 </style>
 <body>
-@if(!empty($payments))
     <div class="invoice-container">
         <div class="invoice-header">
             <h1>Invoice</h1>
         </div>
         <div class="invoice-details">
-            <p><strong>Invoice Number:</strong> {{ $payments['id'] }}</p>
-            <p><strong>Customer Name:</strong> {{ $payments['name'] }}</p>
-            <p><strong>Customer Email:</strong> {{ $payments['email'] }}</p>
+            <p><strong>Invoice Number:</strong></p>
+            <p><strong>Customer Name:</strong></p>
+            <p><strong>Customer Email:</strong></p>
             <!-- Add more details here -->
         </div>
         <div class="invoice-items">
             <table>
                 <thead>
                     <tr>
-                        
+                    <tr>
+                        <th>Description</th>
+                        <th>Event Name</th>
+                        <th>Pay Amount</th>
                         <th>Total</th>
+                    </tr>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Loop through items -->
-                    @foreach($payments as $item)
+                    
                     <tr>
                         
-                        <td>{{ $item['amount'] }}</td>
+                        <td></td>
                     </tr>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
        
     </div>
-    @else
-    <p>No items found</p>
-@endif
+    
 </body>
 </html>

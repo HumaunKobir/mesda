@@ -47,7 +47,7 @@ class PaymentController extends Controller
             $payments->transection_id = '65f1c2e1a1971';
             $payments->currency = 'BD';
             $payments->save();
-            return redirect()->back()->with("success_message","Payment Successfully!");
+            return redirect('user-invoice')->with("success_message","Payment Successfully!");
 
         }
              return view('paymentCheckout')->with(compact('payments'));
@@ -70,6 +70,8 @@ class PaymentController extends Controller
             }
         }
     
-    
+    public function showInvoice(){
+        return view('home.invoice');
+    }
 
 }

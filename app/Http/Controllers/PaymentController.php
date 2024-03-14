@@ -71,6 +71,7 @@ class PaymentController extends Controller
         }
     
     public function showInvoice(){
+        
         return view('home.invoice');
     }
 

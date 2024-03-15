@@ -33,7 +33,9 @@
     <div class="py-5 text-center">
         <h2>Meherpur Student Development Association Event Payment</h2>
 
-        <p class="lead"></p>
+        <p class="lead">
+            <a href="{{url('user-invoice/'.Auth::user()->id)}}" class="btn btn-success">Get Your Payment Receive</a>
+        </p>
     </div>
 
     <div class="row">
@@ -57,9 +59,16 @@
                     </button>
                   </div>
                   @endif
-            <form method="POST" @if(Auth::check()) action="{{ url('user-pay')}}" @else action="{{ url('event-member-pay') }}" @endif class="needs-validation" novalidate>
+                  @if(Session::has('status'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success::</strong> {{Session::get('status')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  @endif
+            <form method="POST" action="{{ url('user-pay')}}" class="needs-validation" novalidate>
             @csrf
-            @if(Auth::check())
             <!-- Automatically fill in registered user's details -->
                 <div class="row">
                     <div class="col-md-12 mb-3">
@@ -118,86 +127,6 @@
                         </div>
                     </div>
                 </div>
-                @else
-                <!-- Allow non-registered users to manually input their details -->
-                <div class="row">
-                    <div class="col-md-12 mb-3">
-                        <label for="firstName">Full name</label>
-                        <input type="text" name="customer_name" class="form-control" id="customer_name" placeholder=""
-                               value="John Doe" required>
-                        <div class="invalid-feedback">
-                            Valid customer name is required.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="mobile">Mobile</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">+88</span>
-                        </div>
-                        <input type="text" name="customer_mobile" class="form-control" id="mobile" placeholder="Mobile"
-                               value="01711xxxxxx" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your Mobile number is required.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" name="customer_email" class="form-control" id="email"
-                           placeholder="you@example.com" value="you@example.com" required>
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address">Thana</label>
-                    <input type="text"name="thana" class="form-control" id="address" placeholder="1234 Main St"
-                           value="93 B, New Eskaton Road" required>
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address2">Village <span class="text-muted">(Optional)</span></label>
-                    <input type="text" name="village" class="form-control" id="address2" placeholder="">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required>
-                            <option value="">Choose...</option>
-                            <option value="Bangladesh">Bangladesh</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="state">State</label>
-                        <select class="custom-select d-block w-100" id="state" required>
-                            <option value="">Choose...</option>
-                            <option value="Dhaka">Dhaka</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="zip">Post Office</label>
-                        <input type="text" name="post_office" class="form-control" id="zip" placeholder="">
-                        <div class="invalid-feedback">
-                            Zip code required.
-                        </div>
-                    </div>
-                </div>
-                @endif
 
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
@@ -220,7 +149,7 @@
                 </button> -->
 
                 @if(session('invoice_path'))
-                    <p>Invoice generated. <a href="{{ route('download.invoice', ['path' => session('invoice_path')]) }}">Download Invoice</a></p>
+                    <p>Invoice generated. <a href="{{ route('download.invoice',['path' => session('invoice_path')]) }}">Download Invoice</a></p>
                 @endif
 
             </form>

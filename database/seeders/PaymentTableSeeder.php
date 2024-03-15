@@ -14,7 +14,7 @@ class PaymentTableSeeder extends Seeder
     public function run(): void
     {
         $paymentRecords=[
-            ['id'=>1,'name'=>'Humaun','email'=> 'humaun@gmail.com','phone'=> '902373897','amount'=>1000,'upozilla'=> 'Meherpur','village'=> 'meherpur','post_office'=>'meherpur','status'=>'panding','transection_id'=>'65f1c2e1a197','currency'=>'BD'],
+            ['id'=>16,'name'=>'Humaun','email'=> 'humaun@gmail.com','phone'=> '902373897','amount'=>1000,'upozilla'=> 'Meherpur','village'=> 'meherpur','post_office'=>'meherpur','status'=>'panding','transection_id'=>'65f1c2e1a197','currency'=>'BD','post_id'=>2,'user_id'=>1],
            
             ];
             Payment::insert($paymentRecords);

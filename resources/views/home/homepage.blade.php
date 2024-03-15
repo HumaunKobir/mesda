@@ -10,6 +10,11 @@
      .navbar {
       background-color: #343a40; /* Navbar background color */
     }
+    .logo-img img{
+      width:50px;
+      height:auto;
+      border-redius: 50%;
+    }
     .navbar-brand {
       color: #fff; /* Navbar brand color */
     }
@@ -45,7 +50,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Your Logo</a>
+    <a class="navbar-brand logo-img" href="#"><img src="{{url('front/image/logo_eng.png')}}" alt=""> MESDA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -78,8 +83,8 @@
       <!-- Post -->
       <div class="post">
         <div class="post-header">
-          <img src="{{ asset('Front/images/post_image/'.$post['post_image']) }}">
-          <h5 class="mb-0">Admin</h5>
+          <img src="{{ asset('front/image/logo_eng.png') }}">
+          <h5 class="mb-0">MESDA</h5>
           
         </div>
         <p>{{$post['post_title']}}</p>
@@ -90,9 +95,9 @@
         <hr>
         <div class="d-flex justify-content-between">
           @if(Auth::check())
-          <a href="{{url('user-pay')}}"><button class="btn btn-primary">User Pay</button></a>
+          <a href="{{url('user-pay')}}"><button class="btn btn-primary">PAY NOW</button></a>
           @else
-          <a href="{{url('event-member-pay')}}"><button class="btn btn-secondary">Event Member pay</button></a>
+          <a href="{{url('event-register')}}"><button class="btn btn-info">PAY NOW</button></a>
           @endif
           <button class="btn btn-danger">Share</button>
         </div>

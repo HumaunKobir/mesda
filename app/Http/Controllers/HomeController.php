@@ -20,6 +20,7 @@ class HomeController extends Controller
             }
         }
     }
+      
     public function homepage()
     {
         $posts = Post::where('status','=',1)->orderBy('id','desc')->get();

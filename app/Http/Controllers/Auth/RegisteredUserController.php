@@ -38,7 +38,6 @@ class RegisteredUserController extends Controller
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'father_name'=> ['required'],
-                'mother_name'=> ['required'],
                 'village'=> ['required'],
                 'word'=> ['required'],
                 'post_office'=> ['required'],
@@ -69,8 +68,8 @@ class RegisteredUserController extends Controller
             }
             $user->name = $data['name'];
             $user->father_name = $data['father_name'];
-            $user->mother_name = $data['mother_name'];
-            $user->email = isset($data['email']) ? $data['email'] : "-";
+            $user->mother_name = isset($data['mother_name']) ? $data['mother_name'] : "-";
+            $user->email = $data['email'];
             $user->phone = $data['phone'];
             $user->village = $data['village'];
             $user->word = $data['word'];

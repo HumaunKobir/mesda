@@ -64,10 +64,10 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
 // SSLCOMMERZ Start
 //Downloading Invice
 Route::get('/download/invoice/{path}', [PaymentController::class, 'downloadInvoice'])->name('download.invoice');
+Route::get('payment_view/{id}', [PaymentController::class,'paymentView']);
 Route::get('user-invoice', [PaymentController::class,'showInvoice']);
 
 Route::match(['get','post'],'/user-pay', [PaymentController::class, 'paymentCheckout']);
-Route::match(['get','post'],'/event-member-pay', [PaymentController::class, 'eventMemberCheckout']);
 Route::get('/pay-now-host', [PaymentController::class, 'paymentHosted']);
 
 Route::post('/pay', [PaymentController::class, 'index']);

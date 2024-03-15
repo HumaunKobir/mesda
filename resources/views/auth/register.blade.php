@@ -48,7 +48,7 @@
                                                 <!--Mother Name -->
                                                 <div class="mt-4 col-sm-6">
                                                     <x-input-label class="mb-2" for="mother_name" :value="__('Mother Name')" />
-                                                    <x-text-input  id="mother_name" class="block mt-1 w-full" type="text" name="mother_name" :value="old('mother_name')" required autocomplete="mother_name" />
+                                                    <x-text-input  id="mother_name" class="block mt-1 w-full" type="text" name="mother_name" :value="old('mother_name')" autocomplete="mother_name" />
                                                     <x-input-error :messages="$errors->get('mother_name')" class="mt-2" />
                                                 </div>
                                                 <!-- Email Address -->
@@ -71,7 +71,7 @@
                                                 </div>
                                                 <!-- Word No -->
                                                 <div class="mt-4 col-sm-6">
-                                                    <x-input-label class="mb-2" for="word" :value="__('Word No')" />
+                                                    <x-input-label class="mb-2" for="word" :value="__('Union')" />
                                                     <x-text-input id="word" class="block mt-1 w-full" type="text" name="word" :value="old('word')" />
                                                     <x-input-error :messages="$errors->get('word')" class="mt-2" />
                                                 </div>
@@ -84,7 +84,12 @@
                                                 <!-- Uppozila -->
                                                 <div class="mt-4 col-sm-6">
                                                     <x-input-label class="mb-2" for="city" :value="__('Upozilla')" />
-                                                    <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required />
+                                                    <select name="city" id="city" class="form-control">
+                                                        <option value="">--Selecte--</option>
+                                                        <option value="Meherpur Sadar">Meherpur Sadar</option>
+                                                        <option value="Mujibnagar">Mojibnagar</option>
+                                                        <option value="Gangni">Gangni</option>
+                                                    </select>
                                                     <x-input-error :messages="$errors->get('city')" class="mt-2" />
                                                 </div>
                                                 <!-- date_of_birth -->
@@ -108,7 +113,9 @@
                                                     <input id="bload_apositive"  type="radio" name="bload_group" value="A+" :checked="old('bload_group') === 'A+'" required /> A+
                                                     <x-text-input id="bload_anagetive" type="radio" name="bload_group" value="A-" :checked="old('bload_group') === 'A-'" required /> A-
                                                     <x-text-input id="bload_bpostive" type="radio" name="bload_group" value="B+" :checked="old('bload_group') === 'B+'" required /> B+
-                                                    <x-text-input id="bload_AB" type="radio" name="bload_group" value="AB" :checked="old('bload_group') === 'AB'" required /> AB
+                                                    <x-text-input id="bload_b-" type="radio" name="bload_group" value="B-" :checked="old('bload_group') === 'B-'" required /> B-
+                                                    <x-text-input id="bload_AB+" type="radio" name="bload_group" value="AB+" :checked="old('bload_group') === 'AB+'" required /> AB+
+                                                    <x-text-input id="bload_AB-" type="radio" name="bload_group" value="AB-" :checked="old('bload_group') === 'AB-'" required /> AB-
                                                     <x-text-input id="bload_opositive" type="radio" name="bload_group"  value="O+" :checked="old('bload_group') === 'O+'" required /> O+
                                                     <x-text-input id="bload_onagetive" type="radio" name="bload_group" value="O-" :checked="old('bload_group') === 'O-'" required /> O-
                                                     <x-input-error :messages="$errors->get('bload_group')" class="mt-2" />

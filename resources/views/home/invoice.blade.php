@@ -160,7 +160,7 @@
                 </tbody>
             </table>
             <br>
-            <h3 class="heading">Payment Status: Paid</h3>
+            <h3 class="heading">Order Status: Paid</h3>
             <h3 class="heading">Payment Mode: Cash on Delivery</h3>
         </div>
 
